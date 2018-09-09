@@ -12,6 +12,11 @@ function echo_errors(){
   echo "----------:::::::::----------";
 }
 main_dir=`pwd`
+if [ -f "/src/packages" ]; then
+  echo "Installing packages:"
+  echo `cat /src/packages`
+  tlmgr install `cat /src/packages`
+fi
 for dir in /src/*
 do
   cd $main_dir;
