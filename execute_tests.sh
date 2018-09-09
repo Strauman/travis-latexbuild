@@ -30,9 +30,8 @@ do
   fi
   cd ${dir}
   latexmk -C
-  latexmk -pdf --shell-escape -interaction=nonstopmode "main.tex" >tmpstdout 2>tmpstderror
+  latexmk -pdf --shell-escape -f -interaction=nonstopmode "main.tex" >tmpstdout 2>tmpstderror
   exitCode=$?
-  latexmk -C
   echo "Exited with code $exitCode"
   dirbase=`basename ${dir}`
   # Do we want it to fail?
@@ -61,6 +60,7 @@ do
   if [ -f "tmpstdout" ];then
     rm tmpstdout;
   fi
+  latexmk -C
 done
 echo "All good!";
 exit 0;
