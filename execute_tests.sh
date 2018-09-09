@@ -11,13 +11,15 @@ function echo_errors(){
   fi
   echo "----------:::::::::----------";
 }
+repo_dir="/repo"
+tests_dir="${repo_dir}/tests"
 main_dir=`pwd`
-if [ -f "/src/packages" ]; then
+if [ -f "/${tests_dir}/packages" ]; then
   echo "Installing packages:"
-  echo `cat /src/packages`
-  tlmgr install `cat /src/packages`
+  echo `cat /${tests_dir}/packages`
+  tlmgr install `cat /${tests_dir}/packages`
 fi
-for dir in /src/*
+for dir in /${tests_dir}/*
 do
   cd $main_dir;
   if [[ ! -d "${dir}" ]]; then

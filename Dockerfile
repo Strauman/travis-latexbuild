@@ -15,7 +15,7 @@ ENV PATH="/usr/local/texlive/2018/bin/x86_64-linuxmusl:${PATH}"
 COPY execute_tests.sh "/usr/bin/execute_tests"
 RUN chmod +x "/usr/bin/execute_tests"
 RUN tlmgr install latexmk
-RUN mkdir /src/
-WORKDIR /src
+RUN mkdir /repo/
+WORKDIR /repo
 RUN tlmgr install lipsum pgf koma-script xcolor
 CMD execute_tests

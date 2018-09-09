@@ -2,4 +2,4 @@ sudo: required
 services: docker
 script:
   - docker pull strauman/travis-latexbuild
-  - docker run --mount src=$TRAVIS_BUILD_DIR/tests,target=/src,type=bind strauman/travis-latexbuild
+  - docker run --mount src=$TRAVIS_BUILD_DIR/,target=/repo,type=bind strauman/travis-latexbuild
