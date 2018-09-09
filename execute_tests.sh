@@ -14,11 +14,18 @@ function echo_errors(){
 repo_dir="/repo"
 tests_dir="${repo_dir}/tests"
 main_dir=`pwd`
-if [ -f "/${tests_dir}/packages" ]; then
+pdfsdir="${tests_dir}/pdfs"
+
+if [ -f "${tests_dir}/packages" ]; then
   echo "Installing packages:"
-  echo `cat /${tests_dir}/packages`
-  tlmgr install `cat /${tests_dir}/packages`
+  echo `cat ${tests_dir}/packages`
+  tlmgr install `cat ${tests_dir}/packages`
 fi
+
+if [ -d "$pdfsdir" ]; then
+  rm -rf "$pdfsdir"
+fi
+mkdir -p $pdfsdir
 for dir in /${tests_dir}/*
 do
   cd $main_dir;
@@ -53,6 +60,7 @@ do
       echo "so it is an error"
       exit 1;
     else
+      cp "main.pdf" "$pdfsdir/${dirbase}.pdf"
       echo "Test of ${dirbase} succeeded!"
     fi
   fi
