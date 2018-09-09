@@ -31,7 +31,7 @@ do
     continue
   fi
   cd ${dir}
-  latexmk -C
+  # latexmk -C
   latexmk -pdf --shell-escape -f -interaction=nonstopmode "main.tex" >tmpstdout 2>tmpstderror
   exitCode=$?
   echo "Exited with code $exitCode"
@@ -62,7 +62,7 @@ do
   if [ -f "tmpstdout" ];then
     rm tmpstdout;
   fi
-  latexmk -C
+  # latexmk -C
 done
 echo "All good!";
 exit 0;
