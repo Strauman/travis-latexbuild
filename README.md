@@ -1,3 +1,6 @@
+- The github repo can be found [here](https://github.com/Strauman/travis-latexbuild/).
+- The docker repo can be found [here](https://hub.docker.com/r/strauman/travis-latexbuild/).
+
 1. Add the `.travis.yml` and `.travis/push.sh` to your root in github repo
 1. In your root git directory make a `tests/` folder
 1. Inside the `tests/` folder make a new folder with the name of a test. E.g. `tests/testmyfeature/`
