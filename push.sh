@@ -23,7 +23,7 @@ commit_pdfs() {
 upload_files() {
   git remote add origin-login https://${GH_TOKEN}@github.com/Strauman/exercisebank.git
   git push --set-upstream -f origin-login "travis-$TRAVIS_BUILD_NUMBER"
-  # git push --set-upstream origin travisbranch
+  echo "PUSHED PDFS TO BRANCH travis-$TRAVIS_BUILD_NUMBER"
 }
 
 setup_git
