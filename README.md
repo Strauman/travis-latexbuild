@@ -16,9 +16,9 @@
 6. Inside the newly created directory, add a file `main.tex`. This file will be run during test.
 1. **If you want the push-branch functionality, do the following**
     1. Go to  [github personal access tokens](https://github.com/settings/tokens) and generate a new token
-    1. You need to encrypt your github token, via travis, and add it to the `.travis.yml`. If you're on Linux or OS X with ruby (gem) installed you can do:
+    1. You need to encrypt your github token, via travis, and add it to the `.travis.yml`. If have ruby (gem) installed you can do:
     - `cd` into your git repo and run `gem install travis; travis GH_TOKEN=YOURTOKEN --add` (replacing `YOURTOKEN` with the generated token). 
-    - If the aboce doesn't work (or you're on a windows machine), have a look on the [travis documentation on encryption keys](https://docs.travis-ci.com/user/encryption-keys) and [travis documentation on environment variables](https://docs.travis-ci.com/user/environment-variables/#defining-encrypted-variables-in-travisyml)
+    - If the aboce doesn't work (or you don' know what ruby gems are), have a look on the [travis documentation on encryption keys](https://docs.travis-ci.com/user/encryption-keys) and [travis documentation on environment variables](https://docs.travis-ci.com/user/environment-variables/#defining-encrypted-variables-in-travisyml)
     1. In your main git repo root make a directory called `.travis` 
     1. Add the [`push.sh`](https://github.com/Strauman/travis-latexbuild/blob/master/push.sh) to the `.travis` directory you just created (this file is pushing the branch. You can omit it if you don't want to push the `travis-BUILDNO`-branch to your repos.
 
