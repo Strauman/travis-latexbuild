@@ -6,13 +6,16 @@ How it works:
 1. You push to the git repo containing your code.
 1. Travis runs the test files you specified (see below).
 1. Travis gives a buildstatus of "failed" if any of the builds doesn't result as expected.
-1. Travis pushes (only) the resulting PDFs to a branch called `travis-BUILDNO` where `BUILDNO`. will be replaced by the current travis build number.
+1. (optional) Travis pushes (only) the resulting PDFs to a branch called `travis-BUILDNO` where `BUILDNO`. will be replaced by the current travis build number.
 
 Setup:
 
 1. In your main git repo root add this [.travis.yml](https://github.com/Strauman/travis-latexbuild/blob/master/.travis.yml)
-2. In your main git repo root make a directory called `.travis` 
-3. Add the [`push.sh`](https://github.com/Strauman/travis-latexbuild/blob/master/push.sh) to the `.travis` directory you just created (this file is pushing the branch. You can omit it if you don't want to push the `travis-BUILDNO`-branch to your repos.
+1. If you want the push-branch functionality, do the following
+    1. Go to  [github personal access tokens](https://github.com/settings/tokens) and generate a new token
+    1. `cd` into your git repo and run `gem install travis; travis GH_TOKEN=YOURTOKEN --add` (replacing `YOURTOKEN` with the generated token)
+    1. In your main git repo root make a directory called `.travis` 
+    1. Add the [`push.sh`](https://github.com/Strauman/travis-latexbuild/blob/master/push.sh) to the `.travis` directory you just created (this file is pushing the branch. You can omit it if you don't want to push the `travis-BUILDNO`-branch to your repos.
 4. Make a directory called `tests/` to your git repo root.
 5. In this repo, create a directory with a name of your choosing. The name of the directory will be the name of the "test". E.g. `/tests/TestMyFeature`
 6. Inside the newly created directory, add a file `main.tex`. This file will be run during test.
