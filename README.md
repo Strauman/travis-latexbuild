@@ -1,14 +1,14 @@
 - The github repo can be found [here](https://github.com/Strauman/travis-latexbuild/).
 - The docker repo can be found [here](https://hub.docker.com/r/strauman/travis-latexbuild/).
 
-How it works:
+# How it works:
 
 1. You push to the git repo containing your code.
 1. Travis runs the test files you specified (see below).
 1. Travis gives a buildstatus of "failed" if any of the builds doesn't result as expected.
 1. (optional) Travis pushes (only) the resulting PDFs to a branch called `travis-BUILDNO` where `BUILDNO`. will be replaced by the current travis build number.
 
-Setup:
+# Setup:
 
 1. In your main git repo root add this [.travis.yml](https://github.com/Strauman/travis-latexbuild/blob/master/.travis.yml)
 4. Make a directory called `tests/` to your git repo root.
@@ -18,7 +18,7 @@ Setup:
     1. Go to  [github personal access tokens](https://github.com/settings/tokens) and generate a new token
     1. You need to encrypt your github token, via travis, and add it to the `.travis.yml`. If you're on Linux or OS X with ruby (gem) installed you can do:
     - `cd` into your git repo and run `gem install travis; travis GH_TOKEN=YOURTOKEN --add` (replacing `YOURTOKEN` with the generated token). 
-    - If the aboce doesn't work (or you're on a windows machine), have a look on the [travis documentation on environment variables](https://docs.travis-ci.com/user/environment-variables/#defining-encrypted-variables-in-travisyml)
+    - If the aboce doesn't work (or you're on a windows machine), have a look on the [travis documentation on encryption keys](https://docs.travis-ci.com/user/encryption-keys) and [travis documentation on environment variables](https://docs.travis-ci.com/user/environment-variables/#defining-encrypted-variables-in-travisyml)
     1. In your main git repo root make a directory called `.travis` 
     1. Add the [`push.sh`](https://github.com/Strauman/travis-latexbuild/blob/master/push.sh) to the `.travis` directory you just created (this file is pushing the branch. You can omit it if you don't want to push the `travis-BUILDNO`-branch to your repos.
 
