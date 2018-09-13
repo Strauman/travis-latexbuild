@@ -11,15 +11,15 @@ How it works:
 Setup:
 
 1. In your main git repo root add this [.travis.yml](https://github.com/Strauman/travis-latexbuild/blob/master/.travis.yml)
-1. If you want the push-branch functionality, do the following
-    1. Go to  [github personal access tokens](https://github.com/settings/tokens) and generate a new token
-    1. You need to encrypt your github token:
-      `cd` into your git repo and run `gem install travis; travis GH_TOKEN=YOURTOKEN --add` (replacing `YOURTOKEN` with the generated token). If this doesn't work, have a look on the [travis documentation on environment variables](https://docs.travis-ci.com/user/environment-variables/)
-    1. In your main git repo root make a directory called `.travis` 
-    1. Add the [`push.sh`](https://github.com/Strauman/travis-latexbuild/blob/master/push.sh) to the `.travis` directory you just created (this file is pushing the branch. You can omit it if you don't want to push the `travis-BUILDNO`-branch to your repos.
 4. Make a directory called `tests/` to your git repo root.
 5. In this repo, create a directory with a name of your choosing. The name of the directory will be the name of the "test". E.g. `/tests/TestMyFeature`
 6. Inside the newly created directory, add a file `main.tex`. This file will be run during test.
+1. **If you want the push-branch functionality, do the following**
+    1. Go to  [github personal access tokens](https://github.com/settings/tokens) and generate a new token
+    1. You need to encrypt your github token:
+      `cd` into your git repo and run `gem install travis; travis GH_TOKEN=YOURTOKEN --add` (replacing `YOURTOKEN` with the generated token). If this doesn't work, have a look on the [travis documentation on environment variables](https://docs.travis-ci.com/user/environment-variables/#defining-encrypted-variables-in-travisyml)
+    1. In your main git repo root make a directory called `.travis` 
+    1. Add the [`push.sh`](https://github.com/Strauman/travis-latexbuild/blob/master/push.sh) to the `.travis` directory you just created (this file is pushing the branch. You can omit it if you don't want to push the `travis-BUILDNO`-branch to your repos.
 
 Things to note:
 
