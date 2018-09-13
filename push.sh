@@ -1,11 +1,8 @@
 #!/bin/sh
 # How to set up TravisCI for projects that push back to github:
+# Inspired by:
 # https://gist.github.com/willprice/e07efd73fb7f13f917ea
-# GH_TOKEN:
-# github -> personal access token
-# gem install travis
-# travis encrypt --add (<- interactive)
-# GH_TOKEN=thetokengoeshere
+
 setup_git() {
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "Travis CI"
