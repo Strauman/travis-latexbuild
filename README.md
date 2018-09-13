@@ -3,7 +3,7 @@
 
 How it works:
 
-1. You push to the git repo.
+1. You push to the git repo containing your code.
 1. Travis runs the test files you specified (see below).
 1. Travis gives a buildstatus of "failed" if any of the builds doesn't result as expected.
 1. Travis pushes (only) the resulting PDFs to a branch called `travis-BUILDNO` where `BUILDNO`. will be replaced by the current travis build number.
