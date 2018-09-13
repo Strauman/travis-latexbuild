@@ -1,13 +1,5 @@
 sudo:       required
 services:   docker
-# Below is GH_TOKEN:
-# github -> personal access token
-# gem install travis
-# travis encrypt --add (<- interactive)
-# GH_TOKEN=thetokengoeshere
-env:
-  global:
-    secure: GITHUBTOKEN-SECURE
 
 script:
   - docker pull strauman/travis-latexbuild
