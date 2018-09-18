@@ -1,15 +1,12 @@
 sudo:       required
 services:   docker
-# Below is GH_TOKEN:
-# github -> personal access token
-# gem install travis
-# travis encrypt --add (<- interactive)
-# GH_TOKEN=thetokengoeshere
-env:
-  global:
-    secure: AgpueUvRah8jeSpzogMTnr2UMdsCPKNq9TcK+GMAYyz13NCd3GL45jAQz9oxTPIbp1+owg6KEuuFI0PUrfkLYqyiuVY8HB8DvfNbWndmIqZZjcQ5U+TcmuX7TP5+D+0y8YAIe0FS2pVQ1FXccoCLN8yBehXL0CPeJhr1JOCIj9sas7k4oQLC6hBtDWWdDlMVjWow0nkC0XypiIkvki5sVSqkGJBN/np6QIq7R7ScSPWRXnZSq3lyvGfo/rh6TaSorEsMfZgOJZmZG6fLGPmt5q5ujftjKbJMXrq9s/2fjuweP9I1nH5Q+VqcEH8vlrkT6NDKfLONJ2/Ld+RoKBcne2uQ+RhDcbnm8rjIWga1GsFPh40Pm4+dThI7PUowi8COF6Bj1Ht+Uk59kbsR0Pkrbij0CVvDC5LbAR+XSGIYIZA+sYBc/o6+o6Srge8gXC3+Cuhs6hbDK5pRkymsP3s6qGbn8pYVQij97fPNIwJD6HHOXUZnd8EGj5LFqQu/7oJwdxwoqOdq3lYvW91WwOaACTTIAxw/hEoTEnVUec9pnJfIgepHKh94B9IZWGuKtTDlmRy9BBS76/85i5FrfKHsr4kmmETb6yaO1bXeB2sVFt0E1qGBR91isx2QlmakKdpcZ0SZ0oUjTC0G4FQo9HWzLSpM2672Je73Cd0S1XKv0iU=
+## When you have done the travis encrypting, then it should look
+## something like this
+# env:	
+#   global:	
+#     secure: ENCRYPTED-GITHUBTOKEN	
 
 script:
   - docker pull strauman/travis-latexbuild
   - docker run --mount src=$TRAVIS_BUILD_DIR/,target=/repo,type=bind strauman/travis-latexbuild
-  - [ -f travis/push.sh ] && . .travis/push.sh
+  - [[ -f travis/push.sh ]] && . .travis/push.sh
