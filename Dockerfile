@@ -10,7 +10,7 @@ COPY texlive.profile .
 RUN apk-install perl wget vim
 RUN wget ftp://tug.org/historic/systems/texlive/2018/install-tl-unx.tar.gz \
     && tar --strip-components=1 -xvf install-tl-unx.tar.gz \
-    && ./install-tl --profile texlive.profile
+    && ./install-tl --profile texlive-full.profile
 ENV PATH="/usr/local/texlive/2018/bin/x86_64-linuxmusl:${PATH}"
 COPY execute_tests.sh "/usr/bin/execute_tests"
 RUN chmod +x "/usr/bin/execute_tests"
