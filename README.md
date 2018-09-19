@@ -41,6 +41,7 @@ Things to note:
 | `build-pattern` | `required`        | tests/\*/main.tex | comma separated paths                       | Path of the files to build. The path should be relative to the repo directory. The paths can contain wildcard (`*`).                         |
 | `tex-scheme`    | optional          | `small`           | `small`, `full`                             | Which TeX-scheme to use; that is how many packages are installed on the docker image by default                                              |
 | ^               | -                 | -                 | `full`                                      | Full contains most of the packages in CTAN and has a docker image of 3GB that needs to be downloaded every time.                             |
+| ^               | -                 | -                 | `medium`                                    |                                                                                                                                              |
 | ^               | -                 | `x`               | `small`                                     | Small contains only the bare necessities, and probably will most of the packages that you wish to used be specified in the `packages` option |
 |                 |                   |                   |                                             |                                                                                                                                              |
 | `packages`      | `optional`        | _empty_           | comma separated list of packages to install | What packages should be installed using TeXLives `tlmgr` before running the TeX-files.                                                       |
@@ -49,3 +50,7 @@ Things to note:
 [gitrepo]: https://github.com/Strauman/travis-latexbuild
 
 [docker]: https://hub.docker.com/r/strauman/travis-latexbuild/
+
+## Contributing
+
+Talk about the files, tex profiles and so forth.
