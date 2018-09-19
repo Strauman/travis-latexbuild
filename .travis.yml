@@ -7,7 +7,7 @@ services:   docker
 #     secure: ENCRYPTED-GITHUBTOKEN
 
 script:
-  - docker pull strauman/travis-latexbuild:latest
-  - docker run --mount src=$TRAVIS_BUILD_DIR/,target=/repo,type=bind strauman/travis-latexbuild:latest
+  - chmod +x travis-texbuild.sh
+  - ./travis-texbuild.sh
 after_success:
   - . .travis/push.sh
