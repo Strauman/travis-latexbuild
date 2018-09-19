@@ -1,14 +1,17 @@
 -   The github repo can be found [here](https://github.com/Strauman/travis-latexbuild/).
 -   The docker repo can be found [here](https://hub.docker.com/r/strauman/travis-latexbuild/).
 
+If you're reading this at docker hub, you probably want to head on over to the [git repo](https://github.com/Strauman/travis-latexbuild/).
+
 # This README is made before the features as a "plan". Head over to issues to see what's done and what's not.
 
 # How it works:
 
 1.  You push to the git repo containing your code.
 2.  Travis runs the test files you specified (see below).
-3.  Travis gives a buildstatus of "failed" if any of the builds doesn't result as expected.
+3.  Travis gives a build status of "failed" if any of the builds doesn't result as expected.
 4.  (optional) Travis pushes (only) the resulting PDFs to a branch called `travis-BUILDNO` where `BUILDNO`. will be replaced by the current travis build number.
+You can choose to push these to a release instead of a branch by using the `push-type` option (see below).
 
 # Setup:
 
@@ -29,7 +32,6 @@ Things to note:
 
 -   The [git repo][gitrepo] contains the setup example: consisting of `.travis.yml`, `.travis/push.sh` and `/tests`.
 -   If `tests/testmyfeature/main.tex` is supposed to fail, then you should make a file `tests/testmyfeature/wants-fail`. Then a success run of the `main.tex` would count as a failed build.
--   To install package requirements, then add a file `tests/packages` containing a space separated list of packages (see the `tests/packages` in the [github repo][gitrepo])
 -   You can put whatever files and directories you want into `tests`. At test time, only the directories containing the `main.tex` is executed.
 -   The working directory of a test `main.tex`-file is the directory the current `main.tex` file is in.
 -   In the docker, by default, the entire repository is loaded to the `/repo` volume. So in your `tests/TestMyFeature/main.tex` you could do e.g. `\def\input@path{{/repo/}}` to include things directly from the repo.
@@ -45,7 +47,7 @@ Things to note:
 | ^               | -                 | `x`               | `small`                                     | Small contains only the bare necessities, and probably will most of the packages that you wish to used be specified in the `packages` option |
 |                 |                   |                   |                                             |                                                                                                                                              |
 | `packages`      | `optional`        | _empty_           | comma separated list of packages to install | What packages should be installed using TeXLives `tlmgr` before running the TeX-files.                                                       |
-| Push type       | `optional`        | `branch`          | `branch`, `release` or `none`               | Where to publish the pdfs generated                                                                                                          |
+| `push-type`     | `optional`        | `branch`          | `branch`, `release` or `none`               | Where to publish the pdfs generated                                                                                                          |
 
 [gitrepo]: https://github.com/Strauman/travis-latexbuild
 
