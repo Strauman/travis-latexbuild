@@ -11,7 +11,7 @@ If you're reading this at docker hub, you probably want to head on over to the [
 2.  Travis runs the test files you specified (see below).
 3.  Travis gives a build status of "failed" if any of the builds doesn't result as expected.
 4.  (optional) Travis pushes (only) the resulting PDFs to a branch called `travis-BUILDNO` where `BUILDNO`. will be replaced by the current travis build number.
-You can choose to push these to a release instead of a branch by using the `push-type` option (see below).
+    You can choose to push these to a release instead of a branch by using the `push-type` option (see below).
 
 # Setup:
 
@@ -38,16 +38,16 @@ Things to note:
 
 ## config.ini (not implemented yet)
 
-| key             | required/optional | default           | accepted values                             | description                                                                                                                                  |
-| --------------- | ----------------- | ----------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `build-pattern` | `required`        | tests/\*/main.tex | comma separated paths                       | Path of the files to build. The path should be relative to the repo directory. The paths can contain wildcard (`*`).                         |
-| `tex-scheme`    | optional          | `small`           | `small`, `full`                             | Which TeX-scheme to use; that is how many packages are installed on the docker image by default                                              |
-| ^               | -                 | -                 | `full`                                      | Full contains most of the packages in CTAN and has a docker image of 3GB that needs to be downloaded every time.                             |
-| ^               | -                 | -                 | `medium`                                    |                                                                                                                                              |
-| ^               | -                 | `x`               | `small`                                     | Small contains only the bare necessities, and probably will most of the packages that you wish to used be specified in the `packages` option |
-|                 |                   |                   |                                             |                                                                                                                                              |
-| `packages`      | `optional`        | _empty_           | comma separated list of packages to install | What packages should be installed using TeXLives `tlmgr` before running the TeX-files.                                                       |
-| `push-type`     | `optional`        | `branch`          | `branch`, `release` or `none`               | Where to publish the pdfs generated                                                                                                          |
+| key             | required/optional | default             | accepted values                             | description                                                                                                                                  |
+| --------------- | ----------------- | ------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `build-pattern` | `required`        | `tests/\*/main.tex` | comma separated paths                       | Path of the files to build. The path should be relative to the repo directory. The paths can contain wildcard (`*`).                         |
+| `tex-scheme`    | optional          | `small`             | `small`, `full`                             | Which TeX-scheme to use; that is how many packages are installed on the docker image by default                                              |
+| ^               | -                 | -                   | `full`                                      | Full contains most of the packages in CTAN and has a docker image of 3GB that needs to be downloaded every time.                             |
+| ^               | -                 | -                   | `medium`                                    |                                                                                                                                              |
+| ^               | -                 | `x`                 | `small`                                     | Small contains only the bare necessities, and probably will most of the packages that you wish to used be specified in the `packages` option |
+|                 |                   |                     |                                             |                                                                                                                                              |
+| `packages`      | `optional`        | _empty_             | comma separated list of packages to install | What packages should be installed using TeXLives `tlmgr` before running the TeX-files.                                                       |
+| `push-type`     | `optional`        | `branch`            | `branch`, `release` or `none`               | Where to publish the pdfs generated                                                                                                          |
 
 [gitrepo]: https://github.com/Strauman/travis-latexbuild
 
