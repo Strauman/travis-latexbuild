@@ -8,8 +8,8 @@ fi
 export CONFIG_FILE="$TRAVIS_BUILD_DIR/.travis/tex-config.ini"
 # Get the tex-scheme config option
 export texscheme=$(awk -F "=" '/tex-scheme/ {print $2}' "$CONFIG_FILE")
-# export pushtype=$(awk -F "=" '/push-type/ {print $2}' "$CONFIG_FILE")
-export pushtype="branch"
+export pushtype=$(awk -F "=" '/push-type/ {print $2}' "$CONFIG_FILE")
+# export pushtype="branch"
 DOCKER_IMAGE="strauman/travis-latexbuild:$texscheme"
 
 setup_git() {
