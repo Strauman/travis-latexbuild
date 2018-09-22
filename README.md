@@ -60,7 +60,7 @@ What packages should be installed using TeXLives `tlmgr` before running the TeX-
 - Accepted values: `branch` or `none`
 - Default value: `branch`
 
-Where to publish the pdfs generated. The option for pushing to `release` is coming: #21.
+Where to publish the pdfs generated. The option for pushing to `release` is coming: [#3 - Push to releases instead of branches](https://github.com/Strauman/travis-latexbuild/issues/3).
 
 
 
