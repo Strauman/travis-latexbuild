@@ -38,8 +38,8 @@ upload_files() {
   echo "PUSHED PDFS TO BRANCH travis-$TRAVIS_BUILD_NUMBER"
 }
 # Only execute if branch doesn't start with travis-
-if [[ $TRAVIS_BRANCH == travis-* ]]; then
-  echo "On a travis branch. Not pushing."
+if [[ "$TRAVIS_BRANCH" == travis-* ]]; then
+  echo "On a travis branch ($TRAVIS_BRANCH). Not doing anything."
 else
   if [ "$pushtype" == "branch" ]; then
   setup_git

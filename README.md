@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Strauman/travis-latexbuild.svg?branch=master)](https://travis-ci.org/Strauman/travis-latexbuild)
+
 -   The github repo can be found [here](https://github.com/Strauman/travis-latexbuild/).
 -   The docker repo can be found [here](https://hub.docker.com/r/strauman/travis-latexbuild/).
 
