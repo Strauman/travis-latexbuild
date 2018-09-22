@@ -1,6 +1,13 @@
 repo_dir="/repo";
 pdfsdir="$repo_dir/pdfs"
 
+if [ -f "$repo_dir/execute_tests_override.sh" ]; then
+  chmod +x execute_tests_override.sh;
+  ./execute_tests_override.sh;
+  exitCode=$?;
+  exit $exitCode;
+fi
+
 cd $repo_dir;
 # read options
 CONFIG_FILE=".travis/tex-config.ini";
@@ -82,7 +89,7 @@ do
       exit 1;
     else
       # cp "${filename_base}.pdf" "$pdfsdir/${filename_base}.pdf"
-      git add ${filename_base}.pdf
+      # git add ${filename_base}.pdf
       echo "Test of ${texfile_full} succeeded!"
     fi
   fi

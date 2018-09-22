@@ -4,7 +4,7 @@ RUN mkdir /tmp/install-tl-unx
 
 WORKDIR /tmp/install-tl-unx
 
-COPY TeXProfiles/texlive-small.profile ./texlive.profile
+COPY TeXProfiles/texlive-full.profile ./texlive.profile
 
 # Install TeX Live 2018 with some basic collections
 RUN apk-install wget perl
