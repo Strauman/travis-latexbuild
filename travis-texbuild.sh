@@ -40,13 +40,13 @@ upload_files() {
 if [[ "$TRAVIS_BRANCH" == travis-* ]]; then
   echo "On a travis branch ($TRAVIS_BRANCH). Not doing anything."
 else
-  if [ "$pushtype" == "branch" ]; then
-  setup_git
   # Now pull the appropriate docker
   docker pull $DOCKER_IMAGE
   # Run the docker and on the files
   docker run --mount src="$TRAVIS_BUILD_DIR/",target=/repo,type=bind $DOCKER_IMAGE
-  commit_pdfs
+  if [ "$pushtype" == "branch" ]; then
+    setup_git
+    commit_pdfs
   [[ "$IS_TRAVIS" == "true" ]] && upload_files;
   elif [ "$pushtype" == "release" ]; then
     echo "Push type release not supported yet."
