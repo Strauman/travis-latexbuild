@@ -1,5 +1,4 @@
-#!/bin/sh
-
+#!/bin/bash
 
 SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
 if [ "$IS_TRAVIS" != "true" ]; then
