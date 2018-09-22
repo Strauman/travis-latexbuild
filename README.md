@@ -1,3 +1,6 @@
+# Heads up!
+A new, more configurable version is now being developed over at the [develop branch](https://github.com/Strauman/travis-latexbuild/tree/develop). You can request features in the issues-tab, and help with testing as we go along!
+
 - The github repo can be found [here](https://github.com/Strauman/travis-latexbuild/).
 - The docker repo can be found [here](https://hub.docker.com/r/strauman/travis-latexbuild/).
 
