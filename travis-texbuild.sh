@@ -26,7 +26,7 @@ setup_git() {
 
 commit_pdfs() {
   echo `ls tests`
-  git add -f "$TRAVIS_BUILD_DIR/tests/pdfs/"
+  git add -f "*.pdf"
   echo `git status`
   git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
 }
@@ -46,7 +46,7 @@ else
   docker pull $DOCKER_IMAGE
   # Run the docker and on the files
   docker run --mount src="$TRAVIS_BUILD_DIR/",target=/repo,type=bind $DOCKER_IMAGE
-  # commit_pdfs
+  commit_pdfs
   [[ "$IS_TRAVIS" == "true" ]] && upload_files;
   elif [ "$pushtype" == "release" ]; then
     echo "Push type release not supported yet."
