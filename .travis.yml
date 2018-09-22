@@ -10,5 +10,3 @@ env:
 script:
   - chmod +x travis-texbuild.sh
   - ./travis-texbuild.sh
-after_success:
-  - . .travis/push.sh
