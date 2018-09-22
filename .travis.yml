@@ -1,10 +1,11 @@
 sudo:       required
 services:   docker
-## When you have done the travis encrypting, then it should look
-## something like this
-# env:
-#   global:
-#     secure: ENCRYPTED-GITHUBTOKEN
+env:
+  global:
+    ## When you have done the travis encrypting, then it should look
+    ## something like this
+    # secure: ENCRYPTED-GITHUBTOKEN
+    - IS_TRAVIS=true
 
 script:
   - chmod +x travis-texbuild.sh

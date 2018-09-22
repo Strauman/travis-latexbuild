@@ -1,22 +1,29 @@
 #!/bin/sh
+# DOCKER_IMAGE="strauman/travis-latexbuild:$texscheme"
+DOCKER_IMAGE="texbuild:initial"
+SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
+if [ "$IS_TRAVIS" != "true" ]; then
+  TRAVIS_BUILD_DIR=$SCRIPT_PATH
+  TRAVIS_BUILD_NUMBER="0000"
+fi
 export CONFIG_FILE="$TRAVIS_BUILD_DIR/.travis/tex-config.ini"
 # Get the tex-scheme config option
 export texscheme=$(awk -F "=" '/tex-scheme/ {print $2}' "$CONFIG_FILE")
 export pushtype=$(awk -F "=" '/push-type/ {print $2}' "$CONFIG_FILE")
 
-# Now pull the appropriate docker
-docker pull strauman/travis-latexbuild:$texscheme
-# Run the docker and on the files
-docker run --mount src="$TRAVIS_BUILD_DIR/",target=/repo,type=bind strauman/travis-latexbuild:$texscheme
-
 setup_git() {
-  git config --global user.email "travis@travis-ci.org"
-  git config --global user.name "Travis CI"
+  if [ "$IS_TRAVIS"=="true" ]; then
+    echo "Testing on travis-ci...";
+    git config --global user.email "travis@travis-ci.org"
+    git config --global user.name "Travis CI"
+  else
+    echo "Testing locally...";
+  fi
+  git checkout --orphan "travis-$TRAVIS_BUILD_NUMBER"
+  git rm --cached $(git ls-files)
 }
 
 commit_pdfs() {
-  git checkout --orphan "travis-$TRAVIS_BUILD_NUMBER"
-  git rm --cached $(git ls-files)
   echo `ls tests`
   git add -f "$TRAVIS_BUILD_DIR/tests/pdfs/"
   echo `git status`
@@ -32,11 +39,15 @@ upload_files() {
 if [[ $TRAVIS_BRANCH == travis-* ]]; then
   echo "On a travis branch. Not pushing."
 else
-  if [ "$pushtype" == "branch" ]; then
+  # if [ "$pushtype" == "branch" ]; then
   setup_git
-  commit_pdfs
-  upload_files
-  elif [ "$pushtype" == "release" ]; then
+  # Now pull the appropriate docker
+  # docker pull $DOCKER_IMAGE
+  # Run the docker and on the files
+  docker run --mount src="$TRAVIS_BUILD_DIR/",target=/repo,type=bind $DOCKER_IMAGE
+  # commit_pdfs
+  # [[ "$IS_TRAVIS"=="true" ]] && upload_files;
+  # elif [ "$pushtype" == "release" ]; then
     #Do release push stuff
-  fi
+  # fi
 fi
