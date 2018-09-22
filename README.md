@@ -17,7 +17,7 @@ If you're reading this at docker hub, you probably want to head on over to the [
 
 1.  In your main git repo root add this [.travis.yml](https://github.com/Strauman/travis-latexbuild/blob/master/.travis.yml)
 2.  In your main git repo root make a directory called `.travis`
-3.  Copy the [`tex-config-example.ini`](https://github.com/Strauman/travis-latexbuild/blob/master/tex-config.ini) to `.travis/tex-config.ini`.
+3.  Copy the [`tex-config-example.ini`](https://github.com/Strauman/travis-latexbuild/blob/master/tex-config-example.ini) to `.travis/tex-config.ini`.
     Docs for the config is found further down in this readme.
 4.  Add the [`travis-texbuild.sh`](https://github.com/Strauman/travis-latexbuild/blob/master/travis-texbuild.sh) to `.travis/travis-texbuild.sh` directory you just created (this file is pushing the branch. You can omit it if you don't want to push the `travis-BUILDNO`-branch to your repos.
 5.  **If you want the push-branch or push-release functionality, do the following**
@@ -63,7 +63,7 @@ What packages should be installed using TeXLives `tlmgr` before running the TeX-
 Where to publish the pdfs generated. Currently only `branch` is supported, however
 the options `release` and `none` are coming.
 
-                                                                                                     
+
 
 [gitrepo]: https://github.com/Strauman/travis-latexbuild
 
