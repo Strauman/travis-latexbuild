@@ -10,9 +10,8 @@ export CONFIG_FILE="$TRAVIS_BUILD_DIR/.travis/tex-config.ini"
 # Get the tex-scheme config option
 export texscheme=$(awk -F "=" '/tex-scheme/ {print $2}' "$CONFIG_FILE")
 export pushtype=$(awk -F "=" '/push-type/ {print $2}' "$CONFIG_FILE")
-
 setup_git() {
-  if [ "$IS_TRAVIS"=="true" ]; then
+  if [ "$IS_TRAVIS" == "true" ]; then
     echo "Testing on travis-ci...";
     git config --global user.email "travis@travis-ci.org"
     git config --global user.name "Travis CI"
@@ -20,7 +19,7 @@ setup_git() {
     echo "Testing locally...";
   fi
   git checkout --orphan "travis-$TRAVIS_BUILD_NUMBER"
-  git rm --cached $(git ls-files)
+  # git rm --cached $(git ls-files)
 }
 
 commit_pdfs() {
@@ -44,7 +43,7 @@ else
   # Now pull the appropriate docker
   # docker pull $DOCKER_IMAGE
   # Run the docker and on the files
-  docker run --mount src="$TRAVIS_BUILD_DIR/",target=/repo,type=bind $DOCKER_IMAGE
+  # docker run --mount src="$TRAVIS_BUILD_DIR/",target=/repo,type=bind $DOCKER_IMAGE
   # commit_pdfs
   # [[ "$IS_TRAVIS"=="true" ]] && upload_files;
   # elif [ "$pushtype" == "release" ]; then
