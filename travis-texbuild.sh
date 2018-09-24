@@ -44,6 +44,10 @@ else
   docker pull $DOCKER_IMAGE
   # Run the docker and on the files
   docker run --mount src="$TRAVIS_BUILD_DIR/",target=/repo,type=bind $DOCKER_IMAGE
+  exitCode=$?
+  if [ $exitCode -ne 0 ]; then
+    exit $exitCode;
+  fi
   if [ "$pushtype" == "branch" ]; then
     echo "PUSHTYPE: $pushtype";
     setup_git;
