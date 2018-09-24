@@ -52,8 +52,10 @@ function echo_errors(){
 
 for buildpattern in $(echo $build_patterns | sed "s/,/ /g")
 do
-  # for texfile_full in ${buildpattern}
-  # do
+  echo "BUILDING PATTERN $buildpattern"
+  for texfile_full in ${buildpattern}
+  do
+    echo "BUILDING FILE $texfile_full"
     cd $repo_dir
     filename=$(basename -- "$texfile_full")
     extension="${filename##*.}"
@@ -97,5 +99,5 @@ do
     fi
     [[ -f "tmpstdout" ]] && rm "tmpstdout"
     [[ -f "tmpstderror" ]] && rm "tmpstderror"
-  # done
+  done
 done
