@@ -17,5 +17,5 @@ build_scheme(){
     docker push $IMAGE_NAME
 }
 build_scheme "small"
-build_scheme "medium"
-build_scheme "full"
+# build_scheme "medium"
+# build_scheme "full"
