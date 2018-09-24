@@ -40,7 +40,9 @@ Things to note:
 ## `build-pattern`
 - Accepted values: a path
 - Default value: `tests/*/main.tex`
-Path of the files to build. The path should be relative to the repo directory. The paths can contain wildcard (`*`).
+  - Paths of the files to build. If you want to specify multiple paths, you can comma separate them.
+  - The path should be relative to the repo directory.
+  - The paths can contain wildcard (`*`) (e.g. `path/to/testfiles/*.tex` is valid).
 
 ## `tex-scheme`
 - Accepted values: `small` or `full`
