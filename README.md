@@ -57,11 +57,10 @@ Which TeX-scheme to use; this is, basically, how many packages are installed on 
 
 What packages should be installed using TeXLives `tlmgr` before running the TeX-files.
 ## `push-type`
-- Accepted values: `branch`
+- Accepted values: `branch` or `none`
 - Default value: `branch`
 
-Where to publish the pdfs generated. Currently only `branch` is supported, however
-the options `release` and `none` are coming.
+Where to publish the pdfs generated. The option for pushing to `release` is coming: [#3 - Push to releases instead of branches](https://github.com/Strauman/travis-latexbuild/issues/3).
 
 
 
