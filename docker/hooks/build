@@ -1,0 +1,21 @@
+#!/bin/bash
+# Build hooks docs:
+# https://docs.docker.com/docker-cloud/builds/advanced/#override-build-test-or-push-commands
+export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+if [ -z "$DOCKER_REPO" ]; then
+  export DOCKER_REPO="travis-latexbuild"
+fi
+if [ -z "$DOCKERFILE_PATH" ]; then
+  export DOCKERFILE_PATH="$SCRIPTPATH/../Dockerfile"
+fi
+build_scheme(){
+    scheme_name="$1"
+    export IMAGE_NAME="$DOCKER_REPO:$scheme_name"
+    echo "Building travis-latexbuild: $scheme_name"
+    docker build --build-arg scheme="$scheme_name" -t "$IMAGE_NAME" -f "$DOCKERFILE_PATH" .
+    echo "Pushing $scheme_name ($IMAGE_NAME)"
+    docker push $IMAGE_NAME
+}
+build_scheme "small"
+# build_scheme "medium"
+# build_scheme "full"
