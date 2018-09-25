@@ -8,7 +8,7 @@ After following the setup below, then your repository has the following function
     tests the `pdflatex` via `latexmk` on the TeX files specified in the config file.
    - If the directory containing the `.tex` file has a file named `wants-fail`, then travis only succeeds if the `.tex`-file build fails.
 
-**NB** if you want to use more advanced features you __MUST__ use the `.travis.yml`
+**NB** if you want to use more advanced features (push back to git or a different TeX scheme) you __MUST__ use the `.travis.yml`
 from the **[master branch][master]**!
 
 ### Setup:
@@ -25,7 +25,7 @@ Configure the `.travis/tex-config.ini` to your needs. For more advanced options
 (e.g. push pdfs back to git repo after tests) see the instructions in the [master branch][master].
 The [master branch][master] also has in depth configuration reference.
 
-**NB** if you want to use more advanced features you __MUST__ use the `.travis.yml`
+**NB** if you want to use more advanced features (push back to git or a different TeX scheme) you __MUST__ use the `.travis.yml`
 from the **[master branch][master]**!
 
 
