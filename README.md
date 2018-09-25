@@ -54,7 +54,7 @@ Which TeX-scheme to use; this is, basically, how many packages are installed on 
 (- `medium`: Coming later)
 
 ## `packages`
-- Accepted values: comma (or space) separated list
+- Accepted values: comma (**not** space) separated list
 - Default value: _empty_
 
 What packages should be installed using TeXLives `tlmgr` before running the TeX-files.

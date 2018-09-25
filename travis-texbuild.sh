@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_PATH="$( cd "$(dirname "$0")" ; pwd -P )"
-if [ "$IS_TRAVIS" != "true" ]; then
+if [[ "$TRAVIS" != "true" ]]; then
   TRAVIS_BUILD_DIR=$SCRIPT_PATH
   TRAVIS_BUILD_NUMBER="0000"
 fi
@@ -13,7 +13,7 @@ export pushtype=$(awk -F "=" '/push-type/ {print $2}' "$CONFIG_FILE")
 DOCKER_IMAGE="strauman/travis-latexbuild:$texscheme"
 
 setup_git() {
-  if [ "$IS_TRAVIS" == "true" ]; then
+  if [ "$TRAVIS" == "true" ]; then
     echo "Testing on travis-ci...";
     git config --global user.email "travis@travis-ci.org"
     git config --global user.name "Travis CI"
@@ -52,7 +52,7 @@ else
     echo "PUSHTYPE: $pushtype";
     setup_git;
     commit_pdfs;
-    [[ "$IS_TRAVIS" == "true" ]] && upload_files;
+    [[ "$TRAVIS" == "true" ]] && upload_files;
   elif [ "$pushtype" == "release" ]; then
     echo "Push type release not supported yet."
   fi
