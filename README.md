@@ -29,7 +29,8 @@ The [master branch][master] also has in depth configuration reference.
 from the **[master branch][master]**!
 
 
+[1]: https://github.com/Strauman/travis-latexbuild/tree/master
 [master]: https://github.com/Strauman/travis-latexbuild/tree/master
 [tex-config.ini]: https://github.com/Strauman/travis-latexbuild/blob/quickstart/quickstart/.travis/tex-config.ini
 [.travis.yml]: https://github.com/Strauman/travis-latexbuild/blob/quickstart/quickstart/.travis.yml
-[travis-ci]: https://travis-ci.org
+[travis]: https://travis-ci.org
