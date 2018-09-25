@@ -57,6 +57,10 @@ if [ -d "$pdfsdir" ]; then
 fi
 mkdir -p "$pdfsdir"
 
+# ---- LATEXMK FLAGS
+# Read option from .INI file
+export buildflags=$(awk -F "=" '/latexmk-flags/ {print $2}' "$CONFIG_FILE");
+
 # --- STRIP BUILDPATTERNS
 # Read option from .INI file
 export build_patterns=$(awk -F "=" '/build-pattern/ {print $2}' "$CONFIG_FILE");
@@ -87,8 +91,8 @@ do
   fi
   cd "$dirname";
   echo "Building $texfile_full"
-  latexmk -C > /dev/null 2>/dev/null
-  latexmk -pdf --shell-escape -f -interaction=nonstopmode "$filename" >tmpstdout 2>tmpstderror
+  latexmk -C ${buildflags} > /dev/null 2>/dev/null
+  latexmk -pdf --shell-escape -f -interaction=nonstopmode ${buildflags} "$filename" >tmpstdout 2>tmpstderror
   exitCode=$?
   # "Error when building $texfile_full.tex"
   # Did we want it to fail?

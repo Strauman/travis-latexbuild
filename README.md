@@ -42,7 +42,7 @@ Things to note:
 
 # config.ini - options
 ## `build-pattern`
-- Accepted values: a path
+- Accepted values: one or more paths
 - Default value: `tests/*/main.tex`
   - Paths of the files to build. If you want to specify multiple paths, you can comma separate them.
   - The path should be relative to the repo directory.
@@ -62,6 +62,11 @@ Which TeX-scheme to use; this is, basically, how many packages are installed on 
 - Default value: _empty_
 
 What packages should be installed using TeXLives `tlmgr` before running the TeX-files.
+
+## `latexmk-flags`
+- Specify compile flags to latexmk, for example `-dvi`
+- Multiple flags can be given, separated by spaces
+
 ## `push-type`
 - Accepted values: `branch` or `none`
 - Default value: `branch`

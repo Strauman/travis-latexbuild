@@ -2,3 +2,4 @@
 *.fls
 *.log
 *.fdb_latexmk
+.idea/
