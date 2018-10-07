@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 repo_dir="/repo";
 pdfsdir="$repo_dir/pdfs"
 
@@ -7,10 +9,10 @@ function echo_errors(){
     echo "!!!ERR:-----------------------";
     cat tmpstderror;
   fi
-  if [ -f "tmpstderror" ];then
+  if [ -f "tmpstdout" ];then
     echo "----------:::::::::----------";
     echo "!!!OUT:-----------------------";
-    cat tmpstderror;
+    cat tmpstdout;
   fi
   echo "----------:::::::::----------";
 }
