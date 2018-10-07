@@ -1,6 +1,5 @@
 ARG scheme
 FROM strauman/tex:tl-$scheme
-RUN tlmgr install lipsum pgf koma-script xcolor
 
 RUN mkdir /repo/
 WORKDIR /repo
