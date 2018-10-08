@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 repo_dir="/repo";
 pdfsdir="$repo_dir/pdfs"
