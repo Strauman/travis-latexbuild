@@ -5,7 +5,7 @@ if [[ "$TRAVIS" != "true" ]]; then
   TRAVIS_BUILD_DIR=$SCRIPT_PATH
   TRAVIS_BUILD_NUMBER="0000"
 fi
-export CONFIG_FILE="$TRAVIS_BUILD_DIR/.travis/tex-config.ini"
+export CONFIG_FILE="$TRAVIS_BUILD_DIR/.travis.yml"
 # Get the tex-scheme config option
 export texscheme=$(awk -F "=" '/tex-scheme/ {print $2}' "$CONFIG_FILE")
 export pushtype=$(awk -F "=" '/push-type/ {print $2}' "$CONFIG_FILE")

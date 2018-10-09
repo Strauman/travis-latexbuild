@@ -8,6 +8,13 @@ tex-config:
   - build-pattern=tests/*/main.tex,moretst/multiplepath.tex
   - packages=lipsum, blindtext
 
+env:
+  global:
+    ## When you have done the travis encrypting, then it should look
+    ## something like this
+    # secure: ENCRYPTED-GITHUBTOKEN
+    - IS_TRAVIS=true
+
 script:
-- docker pull strauman/travis-latexbuild:small # small texlive scheme
-- docker run --mount src=$TRAVIS_BUILD_DIR/,target=/repo,type=bind strauman/travis-latexbuild:small # also here
+  - chmod +x travis-texbuild.sh
+  - ./travis-texbuild.sh

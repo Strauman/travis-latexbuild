@@ -19,10 +19,8 @@ If you're reading this at docker hub, you probably want to head on over to the [
 
 # Setup:
 
-1.  In your main git repo root add this [.travis.yml](https://github.com/Strauman/travis-latexbuild/blob/master/.travis.yml)
-2.  In your main git repo root make a directory called `.travis`
-3.  Copy the [`tex-config-example.ini`](https://github.com/Strauman/travis-latexbuild/blob/master/tex-config-example.ini) to `.travis/tex-config.ini`.
-    Docs for the config is found further down in this readme.
+1.  In your main git repo root add this [.travis.yml](https://github.com/Strauman/travis-latexbuild/blob/master/.travis.yml), or if you don't use the `travis-texbuild.sh` you can use this [.travis.yml](https://github.com/Strauman/travis-latexbuild/blob/master/quickstart/.travis.yml).
+    Docs for the configuration options in your `.travis.yml` is found further down in this readme.
 4.  Add the [`travis-texbuild.sh`](https://github.com/Strauman/travis-latexbuild/blob/master/travis-texbuild.sh) to `.travis/travis-texbuild.sh` directory you just created (this file is pushing the branch. You can omit it if you don't want to push the `travis-BUILDNO`-branch to your repos.
 5.  **If you want the push-branch or push-release functionality, do the following**
     1.  Go to  [github personal access tokens](https://github.com/settings/tokens) and generate a new token
@@ -40,7 +38,15 @@ Things to note:
 -   The working directory of a test `main.tex`-file is the directory the current `main.tex` file is in.
 -   In the docker, by default, the entire repository is loaded to the `/repo` volume. So in your `tests/TestMyFeature/main.tex` you could do e.g. `\def\input@path{{/repo/}}` to include things directly from the repo.
 
-# config.ini - options
+# Configuration options
+
+You can specify configurations in your `.travis.yml` in the form
+
+```yaml
+tex-config:
+  - config-name=value
+```
+
 ## `build-pattern`
 - Accepted values: one or more paths
 - Default value: `tests/*/main.tex`
