@@ -1,5 +1,13 @@
 sudo:       required
+language:   generic
 services:   docker
+
+tex-config:
+  - tex-scheme=small
+  - push-type=none
+  - build-pattern=tests/*/main.tex,moretst/multiplepath.tex
+  - packages=lipsum, blindtext
+
 env:
   global:
     ## When you have done the travis encrypting, then it should look

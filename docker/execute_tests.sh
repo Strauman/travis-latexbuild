@@ -28,7 +28,7 @@ fi
 # Make sure we are in the git repo root
 cd $repo_dir;
 # read options
-CONFIG_FILE=".travis/tex-config.ini";
+CONFIG_FILE=".travis.yml";
 if [ ! -f "$CONFIG_FILE" ]; then
   echo "Config file $CONFIG_FILE does not exist!"
   exit 1;
