@@ -95,7 +95,7 @@ do
   fi
   cd "$dirname";
   echo "Building $texfile_full"
-  latexmk -C ${buildflags} > /dev/null 2>/dev/null
+  latexmk -C ${buildflags} "$filename" > /dev/null 2>/dev/null
   latexmk -pdf --shell-escape -f -interaction=nonstopmode ${buildflags} "$filename" >tmpstdout 2>tmpstderror
   exitCode=$?
   # "Error when building $texfile_full.tex"
