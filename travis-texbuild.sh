@@ -21,6 +21,7 @@ setup_git() {
     echo "Testing locally...";
   fi
   git checkout --orphan "travis-$TRAVIS_BUILD_NUMBER"
+  git reset
   git rm --cached $(git ls-files)
 }
 
