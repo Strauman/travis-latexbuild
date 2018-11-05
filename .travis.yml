@@ -16,5 +16,5 @@ env:
     - IS_TRAVIS=true
 
 script:
-  - chmod +x travis-texbuild.sh
-  - ./travis-texbuild.sh
+  - chmod +x .travis/travis-texbuild.sh
+  - .travis/travis-texbuild.sh

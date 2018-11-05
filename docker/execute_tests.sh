@@ -45,6 +45,8 @@ packages=${packages// /}
 packages=${packages//,/ }
 # Remove any newlines (because it will have a newline if it's empty)
 packages=${packages//$'\n'/}
+# First update tlmgr itself
+tlmgr update --self
 # If we have packages to install
 if [ ! -z "$packages" ]; then
   packages_comma=${packages// /, }
