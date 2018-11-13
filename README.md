@@ -2,6 +2,8 @@ Master build status: [![Build Status](https://travis-ci.org/Strauman/travis-late
 
 Quickstart build status: [![Build Status](https://travis-ci.org/Strauman/travis-latexbuild.svg?branch=quickstart)](https://travis-ci.org/Strauman/travis-latexbuild)
 
+The repo for the dockers used can be found [here](https://github.com/Strauman/latex-docker)
+
 ## Check out the [quickstart branch](https://github.com/Strauman/travis-latexbuild/tree/quickstart) to get started with a base setup!
 
 -   The github repo can be found [here](https://github.com/Strauman/travis-latexbuild/).
