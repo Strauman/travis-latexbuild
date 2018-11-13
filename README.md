@@ -1,8 +1,6 @@
 ## Quickstart
 Quickstart build status: [![Build Status](https://travis-ci.org/Strauman/travis-latexbuild.svg?branch=quickstart)](https://travis-ci.org/Strauman/travis-latexbuild)
 
-The repo for the dockers used can be found [here](https://github.com/Strauman/latex-docker)
-
 After following the setup below, then your repository has the following functionality
 
 1. You push to a branch
@@ -30,6 +28,7 @@ The [master branch][master] also has in depth configuration reference.
 **NB** if you want to use more advanced features (push back to git or a different TeX scheme) you __MUST__ use the `.travis.yml`
 from the **[master branch][master]**!
 
+The repo for the dockers used can be found [here](https://github.com/Strauman/latex-docker)
 
 [1]: https://github.com/Strauman/travis-latexbuild/tree/master
 [master]: https://github.com/Strauman/travis-latexbuild/tree/master
