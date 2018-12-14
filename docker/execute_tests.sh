@@ -47,6 +47,8 @@ packages=${packages//,/ }
 packages=${packages//$'\n'/}
 # First update tlmgr itself
 tlmgr update --self
+# Install texliveonfly (to download packages automatically)
+tlmgr install texliveonfly
 # If we have packages to install
 if [ ! -z "$packages" ]; then
   packages_comma=${packages// /, }
@@ -95,8 +97,13 @@ do
   fi
   cd "$dirname";
   echo "Building $texfile_full"
+
+  # Clean auxiliary files for this particular file using latexmk
   latexmk -C ${buildflags} "$filename" > /dev/null 2>/dev/null
-  latexmk -pdf --shell-escape -f -interaction=nonstopmode ${buildflags} "$filename" >tmpstdout 2>tmpstderror
+
+  # Wrap latexmk with texliveonfly to download missing packages automatically
+  texliveonfly --compiler=latexmk --arguments='-pdf --shell-escape -f -interaction=nonstopmode ${buildflags}' "$filename" >tmpstdout 2>tmpstderror
+
   exitCode=$?
   # "Error when building $texfile_full.tex"
   # Did we want it to fail?
