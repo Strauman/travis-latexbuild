@@ -91,3 +91,21 @@ Where to publish the pdfs generated. The option for pushing to `release` is comi
 ## Contributing
 
 Talk about the files, tex profiles and so forth.
+
+## Instructions for building the docker image on Linux (using IntelliJ)
+
+* Install docker.
+Post-installation steps from [docs.docker.com](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user):
+* Make sure you have a docker group (it may exist already) with `sudo groupadd docker`
+* Add your user to the docker group with `sudo usermod -aG docker $USER`
+* Start docker service, for example with `sudo systemctl start docker`
+
+Building the docker image
+* You can create a run configuration using the gutter icon in the Docker file, but you need to pass a parameter. Edit the run configuration, add a build arg `scheme` with value `small`.
+* In the run configuration, you can add an image tag name to find back your image more easily.
+* After the build has finished ('deployed' locally) you can find an overview of images on your computer in the Docker tab.
+* An instance of an image is called a container.
+
+Running the docker image
+* To test in this repo you can use `testrun.sh`
+* To run elsewhere you can use `docker run --mount src="/full/path/to/repo",target=/repo,type=bind mytagname:latest` or interactively (so you can play around inside the container) with `docker run -it --mount src="/home/thomas/GitRepos/random-tex",target=/repo,type=bind mytagname:latest /bin/sh`
