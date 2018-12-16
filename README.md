@@ -108,4 +108,4 @@ Building the docker image
 
 Running the docker image
 * To test in this repo you can use `testrun.sh`
-* To run elsewhere you can use `docker run --mount src="/full/path/to/repo",target=/repo,type=bind mytagname:latest` or interactively (so you can play around inside the container) with `docker run -it --mount src="/home/thomas/GitRepos/random-tex",target=/repo,type=bind mytagname:latest /bin/sh`
+* To run elsewhere you can use `docker run --mount src="/full/path/to/repo",target=/repo,type=bind mytagname:latest` or interactively (so you can play around inside the container) with `docker run -it --mount src="/full/path/to/repo",target=/repo,type=bind mytagname:latest /bin/sh`
