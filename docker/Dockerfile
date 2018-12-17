@@ -5,9 +5,12 @@ RUN mkdir /repo/
 WORKDIR /repo
 
 # Python is required by texliveonfly
-RUN apk-install python
+RUN apk add --no-cache --update python3
+# Put it in path as python instead of python3
+RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN tlmgr install texliveonfly
 
-RUN apk-install vim git
+RUN apk add --no-cache vim git
 
 COPY execute_tests.sh "/usr/bin/execute_tests"
 

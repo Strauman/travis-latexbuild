@@ -3,3 +3,4 @@
 *.log
 *.fdb_latexmk
 .idea/
+*.iml
