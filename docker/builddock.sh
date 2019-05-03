@@ -1,1 +1,1 @@
-docker build --rm --tag="texbuild:initial" ./
+docker build --build-arg scheme="small" --rm --tag="texbuild:initial" ./
