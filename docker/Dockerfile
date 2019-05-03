@@ -1,5 +1,5 @@
 ARG scheme
-FROM strauman/tex:tl-$scheme
+FROM phpirates/tex:tl-${scheme}-2018
 
 RUN mkdir /repo/
 WORKDIR /repo
