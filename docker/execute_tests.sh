@@ -98,8 +98,10 @@ do
 
   # Clean auxiliary files for this particular file using latexmk
   latexmk -C ${buildflags} "$filename" > /dev/null 2>/dev/null
-  # Wrap latexmk with texliveonfly to download missing packages automatically
-  texliveonfly --compiler=latexmk --arguments="-pdf --shell-escape -f -interaction=nonstopmode ${buildflags}" "$filename" >tmpstdout 2>tmpstderror
+  # First use texliveonfly to download missing packages automatically
+  # Do not give latexmk as parameter to texliveonfly because that sometimes hangs
+  texliveonfly "$filename" >tmpstdout 2>tmpstderror
+  latexmk -pdf --shell-escape -f -interaction=nonstopmode ${buildflags} "$filename" >tmpstdout 2>tmpstderror
 
   exitCode=$?
   # "Error when building $texfile_full.tex"
