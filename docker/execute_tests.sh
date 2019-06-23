@@ -52,9 +52,13 @@ if [ ! -z "$packages" ]; then
   packages_comma=${packages// /, }
   echo "Installing packages $packages_comma"
   tlmgr install $packages
+  
+  # Rebuild filename databases
+  texhash
 else
   echo "Not installing any packages";
 fi
+
 # Make dir for pdf output
 if [ -d "$pdfsdir" ]; then
   rm -rf "$pdfsdir"
