@@ -62,15 +62,16 @@ tex-config:
 
 Which TeX-scheme to use; this is, basically, how many packages are installed on the docker image by default.
 - `full`: Full contains most of the packages in CTAN and has a docker image of 3GB that needs to be downloaded every time.
-- `small`: contains only the bare necessities, missing packages will be attempted to be installed using `texliveonfly`. You can manually add packages that you wish to installed using the `packages` option.
+- `small`: contains only the bare necessities, and probably will most of the packages that you wish to used be specified in the `packages` option.
 (- `medium`: Coming later)
+- `texliveonfly`: Is the `small` image, but missing packages will be attempted to be installed using `texliveonfly`. You can still manually add packages that you wish to installed using the `packages` option.
 
 ## `packages`
 - Accepted values: comma (**not** space) separated list
 - Default value: _empty_
 
 What packages should also be installed using TeXLives `tlmgr` before running the TeX-files.
-Note that `texliveonfly` will attempt to install missing packages automatically.
+Note that when using the `texliveonfly` image, it will attempt to install missing packages automatically.
 
 ## `latexmk-flags`
 - Specify compile flags to latexmk, for example `-dvi`
