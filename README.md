@@ -1,3 +1,5 @@
+[![Gitter](https://badges.gitter.im/travis-latexbuild/community.svg)](https://gitter.im/travis-latexbuild/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 Master build status: [![Build Status](https://travis-ci.org/Strauman/travis-latexbuild.svg?branch=master)](https://travis-ci.org/Strauman/travis-latexbuild)
 
 Quickstart build status: [![Build Status](https://travis-ci.org/Strauman/travis-latexbuild.svg?branch=quickstart)](https://travis-ci.org/Strauman/travis-latexbuild)
