@@ -1,5 +1,5 @@
 ARG scheme
-FROM strauman/tex:tl-${scheme}-2018
+FROM strauman/tex:tl-${scheme}-2019
 
 
 RUN mkdir /repo/
