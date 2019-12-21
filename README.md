@@ -112,3 +112,6 @@ Building the docker image
 Running the docker image
 * To test in this repo you can use `testrun.sh`
 * To run elsewhere you can use `docker run --mount src="/full/path/to/repo",target=/repo,type=bind mytagname:latest` or interactively (so you can play around inside the container) with `docker run -it --mount src="/full/path/to/repo",target=/repo,type=bind mytagname:latest /bin/sh`
+
+Pushing the docker image to the GitHub Package Registry
+* See https://help.github.com/en/github/managing-packages-with-github-packages/configuring-docker-for-use-with-github-packages#publishing-a-package
